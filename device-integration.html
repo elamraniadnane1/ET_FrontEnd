@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Device Integration</title>
+    <!-- Include required libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/device-integration.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="logo">
+            <h1>Energy Tracker</h1>
+        </div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="track-energy.html">Track Energy</a></li>
+            <li><a href="compare.html">Compare Usage</a></li>
+            <li><a href="campaigns.html">Campaigns</a></li>
+            <li><a href="recommendations.html" class="active">Recommendations</a></li>
+            <li><a href="device-integration.html">Device Integration</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h2>Device Integration</h2>
+            <p>Connect your devices to automatically track energy usage.</p>
+        </header>
+
+        <!-- Device List -->
+        <div class="device-list">
+            <h3>Your Connected Devices</h3>
+            <ul id="connectedDevices">
+                <!-- Connected devices will be displayed here -->
+            </ul>
+        </div>
+
+        <!-- Add Device Form -->
+        <div class="add-device-form">
+            <h3>Add New Device</h3>
+            <form id="addDeviceForm">
+                <div class="form-group">
+                    <label for="deviceName">Device Name:</label>
+                    <input type="text" id="deviceName" placeholder="Enter device name" required>
+                </div>
+                <div class="form-group">
+                    <label for="deviceType">Device Type:</label>
+                    <select id="deviceType" required>
+                        <option value="">Select device type</option>
+                        <option value="smart-meter">Smart Meter</option>
+                        <option value="thermostat">Thermostat</option>
+                        <option value="smart-plug">Smart Plug</option>
+                        <option value="solar-panel">Solar Panel</option>
+                        <option value="battery-storage">Battery Storage</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="deviceID">Device ID:</label>
+                    <input type="text" id="deviceID" placeholder="Enter device ID or serial number" required>
+                </div>
+                <button type="submit">Add Device</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/device-integration.js"></script>
+</body>
+</html>

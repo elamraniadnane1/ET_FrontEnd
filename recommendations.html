@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Recommendations</title>
+    <!-- Include required libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/recommendations.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="logo">
+            <h1>Energy Tracker</h1>
+        </div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="track-energy.html">Track Energy</a></li>
+            <li><a href="compare.html">Compare Usage</a></li>
+            <li><a href="campaigns.html">Campaigns</a></li>
+            <li><a href="recommendations.html" class="active">Recommendations</a></li>
+            <li><a href="device-integration.html">Device Integration</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h2>Personalized Energy Saving Recommendations</h2>
+            <p>Based on your energy usage patterns, here are some suggestions to help you save energy.</p>
+        </header>
+
+        <!-- Recommendations Section -->
+        <div class="recommendations-section">
+            <!-- Filter Options -->
+            <div class="filters">
+                <label for="filterType">Filter by Type:</label>
+                <select id="filterType">
+                    <option value="all">All</option>
+                    <option value="electricity">Electricity</option>
+                    <option value="gas">Gas</option>
+                    <option value="water">Water</option>
+                    <option value="appliance">Appliance</option>
+                    <option value="behavior">Behavior</option>
+                </select>
+
+                <label for="sortOrder">Sort by Impact:</label>
+                <select id="sortOrder">
+                    <option value="high-to-low">High to Low</option>
+                    <option value="low-to-high">Low to High</option>
+                </select>
+            </div>
+
+            <!-- Recommendations List -->
+            <ul id="recommendationsList" class="recommendations-list">
+                <!-- Recommendations will be generated dynamically -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/recommendations.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Sign Up</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    <!-- Signup Form Container -->
+    <div class="signup-container">
+        <!-- Logo and Heading -->
+        <div class="header">
+            <h1>Energy Tracker</h1>
+            <p>Create your account to start tracking your energy usage.</p>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="signupForm" novalidate>
+            <div class="form-group">
+                <label for="fullName">Full Name<span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error-message" id="fullNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address<span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password<span class="required">*</span></label>
+                <input type="password" id="password" name="password" required>
+                <div class="error-message" id="passwordError"></div>
+                <div class="password-requirements">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li id="length" class="invalid">At least 8 characters</li>
+                        <li id="uppercase" class="invalid">An uppercase letter</li>
+                        <li id="lowercase" class="invalid">A lowercase letter</li>
+                        <li id="number" class="invalid">A number</li>
+                        <li id="special" class="invalid">A special character (!@#$%^&*)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password<span class="required">*</span></label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I agree to the <a href="terms.html" target="_blank">Terms and Conditions</a>
+                </label>
+                <div class="error-message" id="termsError"></div>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+            <p class="login-link">Already have an account? <a href="login.html">Log in here</a>.</p>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/signup.js"></script>
+</body>
+</html>

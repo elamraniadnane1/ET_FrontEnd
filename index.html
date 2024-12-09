@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Home</title>
+    <!-- Include required libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <h1>Energy Tracker</h1>
+            <div class="date-time" id="datetime"></div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="track-energy.html">Track Energy</a>
+            <a href="compare.html">Compare Usage</a>
+            <a href="campaigns.html">Campaigns</a>
+            <a href="recommendations.html" class="active">Recommendations</a>
+            <a href="device-integration.html">Device Integration</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Energy Usage Chart -->
+            <div class="energy-chart">
+                <h2>Energy Usage Over Time</h2>
+                <canvas id="energyChart" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="recommendations">
+                <h3>Energy Saving Recommendations</h3>
+                <ul id="recommendations-list">
+                    <!-- Recommendations will be generated dynamically -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2023 Energy Tracker. All rights reserved.
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/index.js"></script>
+</body>
+</html>

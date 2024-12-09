@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Login</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Login Form Container -->
+    <div class="login-container">
+        <!-- Logo and Heading -->
+        <div class="header">
+            <h1>Energy Tracker</h1>
+            <p>Log in to your account to start tracking your energy usage.</p>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="usernameOrEmail">Username or Email:</label>
+                <input type="text" id="usernameOrEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Additional Options -->
+        <div class="additional-options">
+            <button id="createAccountBtn">Create Account</button>
+            <button id="forgotPasswordBtn">Forgot Password</button>
+        </div>
+
+        <!-- Display Username After Login -->
+        <!-- Note: This section is kept for compatibility but will not be used since we redirect to dashboard -->
+        <div id="welcomeMessage" class="welcome-message" style="display: none;">
+            <p>Welcome, <span id="displayUsername"></span>!</p>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/login.js"></script>
+</body>
+</html>

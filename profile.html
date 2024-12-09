@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Tracker - Profile</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="logo">
+            <h1>Energy Tracker</h1>
+        </div>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="track-energy.html">Track Energy</a></li>
+            <li><a href="compare.html">Compare Usage</a></li>
+            <li><a href="campaigns.html">Campaigns</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="device-integration.html">Device Integration</a></li>
+            <li><a href="profile.html" class="active">Profile</a></li>
+        </ul>
+        <!-- Display Username and Logout Button -->
+        <div class="user-info">
+            <span id="usernameDisplay"></span>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h2>Your Profile</h2>
+            <p>Manage your personal information and account settings.</p>
+        </header>
+
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <h3>Personal Information</h3>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="organization">Organization:</label>
+                    <input type="text" id="organization">
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- Change Password -->
+        <div class="change-password">
+            <h3>Change Password</h3>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="js/profile.js"></script>
+</body>
+</html>

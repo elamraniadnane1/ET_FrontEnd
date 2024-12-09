@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Tracker - Track Energy</title>
+    <!-- Required Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="css/campaigns.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="logo">
+            <i class="fas fa-bolt"></i>
+            <h1>Energy Tracker</h1>
+        </div>
+        <ul>
+            <li><a href="dashboard.html">
+                <i class="fas fa-home"></i> Dashboard
+            </a></li>
+            <li><a href="track-energy.html">
+                <i class="fas fa-chart-line"></i> Track Energy
+            </a></li>
+            <li><a href="compare.html">
+                <i class="fas fa-balance-scale"></i> Compare
+            </a></li>
+            <li><a href="campaigns.html"class="active">
+                <i class="fas fa-users"></i> Campaigns
+            </a></li>
+            <li><a href="recommendations.html">
+                <i class="fas fa-lightbulb"></i> Tips
+            </a></li>
+            <li><a href="device-integration.html">
+                <i class="fas fa-plug"></i> Devices
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h2>Energy Saving Campaigns</h2>
+            <p>Join campaigns to collectively reduce energy consumption and make a difference.</p>
+        </header>
+
+        <!-- Create Campaign Button -->
+        <div class="create-campaign">
+            <button id="createCampaignBtn">Create New Campaign</button>
+        </div>
+
+        <!-- Campaigns List -->
+        <div class="campaigns-list">
+            <h3>Available Campaigns</h3>
+            <div id="campaignsContainer">
+                <!-- Campaign cards will be added dynamically -->
+            </div>
+        </div>
+
+        <!-- My Campaigns -->
+        <div class="my-campaigns">
+            <h3>Your Campaigns</h3>
+            <div id="myCampaignsContainer">
+                <!-- User's campaigns will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Campaign Modal -->
+    <div id="campaignModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>Create a New Campaign</h3>
+            <form id="campaignForm">
+                <div class="form-group">
+                    <label for="campaignName">Campaign Name:</label>
+                    <input type="text" id="campaignName" required>
+                </div>
+                <div class="form-group">
+                    <label for="campaignDescription">Description:</label>
+                    <textarea id="campaignDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="campaignGoal">Energy Saving Goal (%):</label>
+                    <input type="number" id="campaignGoal" min="1" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="campaignDuration">Duration (in days):</label>
+                    <input type="number" id="campaignDuration" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="campaignType">Campaign Type:</label>
+                    <select id="campaignType" required>
+                        <option value="">Select Type</option>
+                        <option value="community">Community</option>
+                        <option value="workplace">Workplace</option>
+                        <option value="school">School</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit">Create Campaign</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/campaigns.js"></script>
+</body>
+</html>

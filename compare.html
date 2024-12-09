@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Tracker - Track Energy</title>
+    <!-- Required Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <link rel="stylesheet" href="css/compare.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-menu">
+        <div class="logo">
+            <i class="fas fa-bolt"></i>
+            <h1>Energy Tracker</h1>
+        </div>
+        <ul>
+            <li><a href="dashboard.html">
+                <i class="fas fa-home"></i> Dashboard
+            </a></li>
+            <li><a href="track-energy.html">
+                <i class="fas fa-chart-line"></i> Track Energy
+            </a></li>
+            <li><a href="compare.html"class="active">
+                <i class="fas fa-balance-scale"></i> Compare
+            </a></li>
+            <li><a href="campaigns.html">
+                <i class="fas fa-users"></i> Campaigns
+            </a></li>
+            <li><a href="recommendations.html">
+                <i class="fas fa-lightbulb"></i> Tips
+            </a></li>
+            <li><a href="device-integration.html">
+                <i class="fas fa-plug"></i> Devices
+            </a></li>
+            <li class="user-menu">
+                <div class="user-profile">
+                    <img src="/api/placeholder/32/32" alt="Profile" class="profile-image">
+                    <span id="userName">Adnane</span>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h2>Compare Your Energy Usage</h2>
+            <p>See how your energy consumption stacks up against similar households.</p>
+        </header>
+
+        <!-- Comparison Filters -->
+        <div class="comparison-filters">
+            <h3>Set Comparison Criteria</h3>
+            <form id="comparisonForm">
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <select id="location">
+                        <option value="">Select your city</option>
+                        <option value="Ifrane">New York</option>
+                        <option value="Fes">San Francisco</option>
+                        <option value="Rabat">London</option>
+                        <option value="Tangier">Tokyo</option>
+                        <!-- Add more cities as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="householdSize">Household Size:</label>
+                    <select id="householdSize">
+                        <option value="">Select household size</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6+ People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="homeType">Home Type:</label>
+                    <select id="homeType">
+                        <option value="">Select home type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="detached">Detached House</option>
+                        <option value="semi-detached">Semi-Detached House</option>
+                        <option value="townhouse">Townhouse</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit">Compare Now</button>
+            </form>
+        </div>
+
+        <!-- Comparison Results -->
+        <div class="comparison-results">
+            <h3>Comparison Results</h3>
+            <canvas id="comparisonChart"></canvas>
+            <div id="insights">
+                <!-- Insights will be generated dynamically -->
+            </div>
+            <!-- Example Households -->
+            <div id="exampleHouseholds">
+                <h3>Example Households</h3>
+                <ul id="householdsList">
+                    <!-- Example households will be listed here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2023 Energy Tracker. All rights reserved.
+    </footer>
+
+    <!-- Include required libraries -->
+    <!-- Load Chart.js before your script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="js/compare.js"></script>
+</body>
+</html>
