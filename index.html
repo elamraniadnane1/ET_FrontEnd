@@ -1,56 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" itemtype="http://schema.org/WebPage" itemscope>
 <head>
     <meta charset="UTF-8">
-    <title>Energy Tracker - Home</title>
-    <!-- Include required libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <!-- Link to external CSS file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Energy Tracker - Monitor and optimize your energy consumption">
+    <meta name="keywords" content="Energy, Tracker, Smart Home, Energy Consumption, Sustainability, Smart Buildings">
+    <meta name="author" content="Your Company Name">
+    <meta name="theme-color" content="#3498db">
+
+    <title>Energy Tracker - Smart Energy Management Dashboard</title>
+
+    <!-- Preconnects and prefetches for performance -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Preload critical assets for better performance -->
+    <link rel="preload" href="css/index.css" as="style">
+    <link rel="preload" href="js/index.js" as="script">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/index.css">
+
+    <!-- Updated Chart.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Favicon -->
+    <link rel="icon" href="icons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="icons/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebApplication",
+      "name": "Energy Tracker",
+      "url": "https://www.example.com",
+      "description": "Monitor and optimize your energy consumption with Energy Tracker.",
+      "applicationCategory": "Utility",
+      "creator": {
+        "@type": "Organization",
+        "name": "Your Company Name"
+      }
+    }
+    </script>
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Header -->
-        <div class="header">
-            <h1>Energy Tracker</h1>
-            <div class="date-time" id="datetime"></div>
-        </div>
+    <!-- Skip to main content link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header" role="banner">
+            <div class="container header__content">
+                <div class="header__branding">
+                    <!-- Icon representing the application -->
+                    <span class="header__icon" aria-hidden="true" role="img" aria-label="Energy Tracker Icon">⚡</span>
+                    <h1 class="text-heading text-heading--1" itemprop="name">Energy Tracker</h1>
+                </div>
+
+                <div class="header__utils">
+                    <!-- Current date/time -->
+                    <time class="date-time" id="datetime" aria-live="polite">
+                        December 10th 2024,
+                    </time>
+
+                    <!-- Theme toggle button -->
+                    <button class="btn btn--icon" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="icon icon--moon" aria-hidden="true">🌙</span>
+                    </button>
+
+                    <!-- Language Selector -->
+                    <label for="language-select" class="visually-hidden">Select Language</label>
+                    <select id="language-select" class="form-control" aria-label="Select language">
+                        <option value="en" selected>English</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <!-- Add more languages -->
+                    </select>
+
+                    <!-- User Account (Placeholder) -->
+                    <div class="user-account" aria-label="User account section">
+                        <button class="btn btn--icon" id="user-menu-toggle" aria-label="User menu" aria-expanded="false" aria-controls="user-menu">
+                            <span class="icon" aria-hidden="true">👤</span>
+                        </button>
+                        <ul id="user-menu" class="user-menu" aria-hidden="true" aria-label="User menu">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="logout.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <!-- Navigation Menu -->
-        <nav class="nav-menu">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="track-energy.html">Track Energy</a>
-            <a href="compare.html">Compare Usage</a>
-            <a href="campaigns.html">Campaigns</a>
-            <a href="recommendations.html" class="active">Recommendations</a>
-            <a href="device-integration.html">Device Integration</a>
-            <a href="profile.html">Profile</a>
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="nav__toggle-icon" aria-hidden="true"></span>
+                </button>
+
+                <ul class="nav__menu" id="nav-menu">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link" aria-label="Dashboard">
+                            <span class="icon icon--dashboard" aria-hidden="true">📊</span>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="track-energy.html" class="nav__link" aria-label="Track Energy">
+                            <span class="icon icon--track" aria-hidden="true">📈</span>
+                            <span class="nav__text">Track Energy</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="compare.html" class="nav__link" aria-label="Compare Usage">
+                            <span class="icon icon--compare" aria-hidden="true">🔄</span>
+                            <span class="nav__text">Compare Usage</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="recommendations.html" class="nav__link is-active" aria-current="page" aria-label="Recommendations">
+                            <span class="icon icon--recommendations" aria-hidden="true">💡</span>
+                            <span class="nav__text">Recommendations</span>
+                        </a>
+                    </li>
+                    <!-- Additional Navigation Items -->
+                    <li class="nav__item">
+                        <a href="community.html" class="nav__link" aria-label="Community Comparison">
+                            <span class="icon icon--community" aria-hidden="true">👥</span>
+                            <span class="nav__text">Community</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="companies.html" class="nav__link" aria-label="Companies Comparison">
+                            <span class="icon icon--companies" aria-hidden="true">🏢</span>
+                            <span class="nav__text">Companies</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Additional features: Global Search -->
+                <form class="nav__search" role="search" aria-label="Site Search">
+                    <label for="site-search" class="visually-hidden">Search the site</label>
+                    <input type="search" id="site-search" name="q" placeholder="Search..." aria-label="Search the site">
+                    <button type="submit" class="btn" aria-label="Submit search">🔍</button>
+                </form>
+            </div>
         </nav>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Energy Usage Chart -->
-            <div class="energy-chart">
-                <h2>Energy Usage Over Time</h2>
-                <canvas id="energyChart" width="400" height="200"></canvas>
-            </div>
+        <!-- Main Content Area -->
+        <main id="main-content" class="main" role="main">
+            <div class="container">
+                <!-- Energy Usage Chart Section -->
+                <section class="energy-chart card" aria-labelledby="chart-heading">
+                    <header class="card__header">
+                        <h2 id="chart-heading" class="text-heading text-heading--2">Energy Usage Over Time</h2>
+                        <div class="card__actions">
+                            <label for="timeRange" class="visually-hidden">Select time range</label>
+                            <select class="form-control" id="timeRange" aria-label="Select time range">
+                                <option value="day">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month" selected>This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                            <!-- Additional action: Print button -->
+                            <button class="btn btn--icon" id="print-chart" aria-label="Print chart">🖨️</button>
+                        </div>
+                    </header>
 
-            <!-- Recommendations -->
-            <div class="recommendations">
-                <h3>Energy Saving Recommendations</h3>
-                <ul id="recommendations-list">
-                    <!-- Recommendations will be generated dynamically -->
-                </ul>
-            </div>
-        </div>
+                    <div class="card__body">
+                        <div class="chart-container" aria-label="Energy usage chart">
+                            <canvas id="energyChart" aria-describedby="chart-desc"></canvas>
+                            <p id="chart-desc" class="visually-hidden">
+                                This chart shows your energy usage over the selected time period.
+                            </p>
+                            <noscript>
+                                <p class="alert alert--warning">Please enable JavaScript to view the energy usage chart.</p>
+                            </noscript>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Footer -->
-        <div class="footer">
-            &copy; 2023 Energy Tracker. All rights reserved.
+                <!-- Recommendations Section -->
+                <section class="recommendations card spacing-top" aria-labelledby="recommendations-heading">
+                    <header class="card__header">
+                        <h2 id="recommendations-heading" class="text-heading text-heading--2">Energy Saving Recommendations</h2>
+                        <!-- Additional Filters (Placeholder) -->
+                        <div class="card__actions">
+                            <label for="recommendation-filter" class="visually-hidden">Filter recommendations</label>
+                            <select class="form-control" id="recommendation-filter" aria-label="Filter recommendations">
+                                <option value="all" selected>All</option>
+                                <option value="low-cost">Low Cost</option>
+                                <option value="high-impact">High Impact</option>
+                                <option value="quick-win">Quick Win</option>
+                            </select>
+                            <!-- Refresh button for recommendations -->
+                            <button class="btn btn--icon" id="refresh-recommendations" aria-label="Refresh recommendations" aria-controls="recommendations-list">
+                                🔄
+                            </button>
+                        </div>
+                    </header>
+
+                    <div class="card__body">
+                        <ul class="recommendations-list" id="recommendations-list" role="list">
+                            <li class="recommendations-list__item loading" aria-live="polite">
+                                <div class="loading-indicator" aria-hidden="true"></div>
+                                <span class="loading__text">Loading recommendations...</span>
+                            </li>
+                            <!-- Recommendations will be dynamically added here by JS -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Community Comparison Section -->
+                <section class="community-comparison card spacing-top" aria-labelledby="community-heading">
+                    <header class="card__header">
+                        <h2 id="community-heading" class="text-heading text-heading--2">Community Comparison</h2>
+                    </header>
+                    <div class="card__body">
+                        <div class="comparison-grid">
+                            <!-- Your Stats -->
+                            <div class="comparison-card" aria-labelledby="your-stats-heading">
+                                <h3 id="your-stats-heading">Your Stats</h3>
+                                <p>Energy Usage: <span class="value">1,245</span> kWh</p>
+                                <p>Carbon Footprint: <span class="value">425</span> kg</p>
+                                <p>Rank: <span class="value">#5</span></p>
+                            </div>
+
+                            <!-- Community Averages -->
+                            <div class="comparison-card" aria-labelledby="community-averages-heading">
+                                <h3 id="community-averages-heading">Community Averages</h3>
+                                <p>Energy Usage: <span class="value">1,100</span> kWh</p>
+                                <p>Carbon Footprint: <span class="value">390</span> kg</p>
+                                <p>Average Rank: <span class="value">#7</span></p>
+                            </div>
+
+                            <!-- Leaderboard -->
+                            <div class="comparison-card" aria-labelledby="leaderboard-heading">
+                                <h3 id="leaderboard-heading">Leaderboard</h3>
+                                <ol class="leaderboard" aria-label="Community Leaderboard">
+                                    <li>#1 - Home A (980 kWh)</li>
+                                    <li>#2 - Home B (1,020 kWh)</li>
+                                    <li>#3 - Home C (1,040 kWh)</li>
+                                    <!-- More leaderboard items -->
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Companies Comparison Section -->
+                <section class="companies-comparison card spacing-top" aria-labelledby="companies-heading">
+                    <header class="card__header">
+                        <h2 id="companies-heading" class="text-heading text-heading--2">Companies Comparison</h2>
+                    </header>
+                    <div class="card__body">
+                        <div class="comparison-grid">
+                            <!-- Your Company -->
+                            <div class="comparison-card" aria-labelledby="your-company-heading">
+                                <h3 id="your-company-heading">Your Company</h3>
+                                <p>Energy Usage: <span class="value">1,245</span> kWh</p>
+                                <p>Carbon Footprint: <span class="value">425</span> kg</p>
+                                <p>Cost: <span class="value">980 MAD</span></p>
+                            </div>
+
+                            <!-- Competitor 1 -->
+                            <div class="comparison-card" aria-labelledby="competitor-1-heading">
+                                <h3 id="competitor-1-heading">Competitor 1</h3>
+                                <p>Energy Usage: <span class="value">1,300</span> kWh</p>
+                                <p>Carbon Footprint: <span class="value">460</span> kg</p>
+                                <p>Cost: <span class="value">1,100 MAD</span></p>
+                            </div>
+
+                            <!-- Competitor 2 -->
+                            <div class="comparison-card" aria-labelledby="competitor-2-heading">
+                                <h3 id="competitor-2-heading">Competitor 2</h3>
+                                <p>Energy Usage: <span class="value">1,180</span> kWh</p>
+                                <p>Carbon Footprint: <span class="value">400</span> kg</p>
+                                <p>Cost: <span class="value">950 MAD</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Future Features Placeholder -->
+                <section class="future-features card spacing-top" aria-labelledby="future-features-heading">
+                    <header class="card__header">
+                        <h2 id="future-features-heading" class="text-heading text-heading--2">Coming Soon</h2>
+                    </header>
+                    <div class="card__body">
+                        <ul class="coming-soon-list" role="list">
+                            <li class="coming-soon-item">
+                                <span class="icon" aria-hidden="true">🚀</span>
+                                <span>Advanced AI Predictions</span>
+                            </li>
+                            <li class="coming-soon-item">
+                                <span class="icon" aria-hidden="true">🔧</span>
+                                <span>Device Integration Enhancements</span>
+                            </li>
+                            <li class="coming-soon-item">
+                                <span class="icon" aria-hidden="true">📱</span>
+                                <span>Mobile App Support</span>
+                            </li>
+                            <!-- More upcoming features -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Back to Top Button -->
+                <button class="back-to-top" aria-label="Back to top">↑</button>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer" role="contentinfo">
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">
+                        &copy; <span itemprop="copyrightYear">2024</span> 
+                        <span itemprop="copyrightHolder">Energy Tracker</span>.
+                        All rights reserved.
+                    </p>
+                    <nav class="footer__nav" aria-label="Footer navigation">
+                        <ul class="footer__menu">
+                            <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
+                            <li><a href="terms.html" class="footer__link">Terms of Service</a></li>
+                            <li><a href="accessibility.html" class="footer__link">Accessibility</a></li>
+                            <!-- Additional footer links -->
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Feedback / Contact Section -->
+                <div class="footer__feedback">
+                    <h3>Feedback</h3>
+                    <form action="#" method="post" aria-label="Feedback form">
+                        <label for="feedback-message" class="visually-hidden">Your feedback</label>
+                        <textarea id="feedback-message" name="feedback" rows="3" placeholder="Write your feedback..." aria-label="Your feedback message"></textarea>
+                        <button type="submit" class="btn">Submit Feedback</button>
+                    </form>
+                    <p>Need help? <a href="support.html">Contact Support</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Detailed Recommendations -->
+    <div class="modal" id="recommendation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading" aria-describedby="modal-desc">
+        <div class="modal-content" tabindex="-1">
+            <button class="close-btn" aria-label="Close modal">✖️</button>
+            <div class="modal-body">
+                <h3 id="modal-heading">Recommendation Details</h3>
+                <p id="modal-desc" class="visually-hidden">Detailed information about the selected recommendation will be shown here.</p>
+                <!-- Dynamic Content -->
+            </div>
         </div>
     </div>
 
-    <!-- Link to external JavaScript file -->
-    <script src="js/index.js"></script>
+    <!-- Offline Fallback (for PWA) -->
+    <div class="offline-fallback" aria-live="polite" style="display:none;">
+        <p>You are currently offline. Some features may not be available.</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/index.js" type="module"></script>
+
+    <!-- Error Boundary for Older Browsers -->
+    <script nomodule>
+        document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><p>Please use a modern browser to access Energy Tracker.</p></div>';
+    </script>
 </body>
 </html>
